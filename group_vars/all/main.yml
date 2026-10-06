@@ -1,0 +1,17 @@
+---
+# Non-secret settings. Override per host/group as needed.
+app_name: django-app
+app_dir: /opt/django-app
+app_image_repository: docker.io/vaymen/django-app   # built and pushed from the django-app repo
+app_image_tag: "491db03"                                # git commit id of django-app
+app_image: "{{ app_image_repository }}:{{ app_image_tag }}"
+app_version: "{{ app_image_tag }}"
+app_port: 8000                       # published on the host
+app_allowed_hosts: "{{ ansible_host | default(inventory_hostname) }}"   # comma-separated; "*" is rejected
+app_debug: false
+app_workers: 3
+
+db_name: django
+db_user: django
+db_image: postgres:16-alpine
+# db_password and django_secret_key live in the vault (see vault.yml.example)

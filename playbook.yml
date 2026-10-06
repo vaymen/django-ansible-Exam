@@ -1,0 +1,7 @@
+---
+- name: Deploy Django + PostgreSQL with Docker Compose
+  hosts: django_hosts
+  become: true
+  roles:
+    - docker
+    - app

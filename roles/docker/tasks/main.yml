@@ -1,0 +1,24 @@
+---
+# docker-compose-v2 only exists in Ubuntu >= 24.04 repos (not 22.04 / Debian 12).
+- name: Fail early on unsupported OS
+  ansible.builtin.assert:
+    that:
+      - ansible_facts['distribution'] == 'Ubuntu'
+      - ansible_facts['distribution_version'] is version('24.04', '>=')
+    fail_msg: "This role supports Ubuntu 24.04+ only (needs the docker-compose-v2 package)."
+
+- name: Install Docker Engine, Compose plugin and Python SDK from distro repos
+  ansible.builtin.apt:
+    name:
+      - docker.io
+      - docker-compose-v2
+      - python3-docker
+    state: present
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Ensure Docker is enabled and running
+  ansible.builtin.service:
+    name: docker
+    state: started
+    enabled: true

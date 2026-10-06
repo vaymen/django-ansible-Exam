@@ -1,0 +1,4 @@
+# secrets / host-specific files: never commit
+group_vars/all/vault.yml
+inventory/hosts.ini
+*.retry
