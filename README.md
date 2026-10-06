@@ -74,3 +74,7 @@ ssh <host> docker compose -f /opt/django-app/docker-compose.yml ps
 ## Limitations
 
 No backups, single host (no HA), and the playbook has been syntax-checked but not run against a real server.
+
+## How this was built
+
+Written with the help of an AI coding assistant (Claude Code) and reviewed and tested by hand. [`AGENTS.md`](AGENTS.md) records the conventions and commands an agent must follow when changing this repository.
