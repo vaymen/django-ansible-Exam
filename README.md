@@ -77,4 +77,4 @@ No backups, single host (no HA), and the playbook has been syntax-checked but no
 
 ## How this was built
 
-Written with the help of an AI coding assistant (Claude Code) and reviewed and tested by hand. [`AGENTS.md`](AGENTS.md) records the conventions and commands an agent must follow when changing this repository.
+Written with the help of an AI coding assistant (Claude Code) and reviewed by hand. The playbook is syntax-checked only; it has not been run against a real server. [`AGENTS.md`](AGENTS.md) records the conventions and commands an agent must follow when changing this repository.
